@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hydroponic Parameter Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #E0F0D8;
+    }
+
+    h1 {
+      text-align: center;
+      color: #468C48;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #CCCCCC;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #468C48;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #348038;
+    }
+
+    .image-wrapper {
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .output-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .output-wrapper h2 {
+      text-align: center;
+      color: #468C48;
+      margin-bottom: 20px;
+    }
+
+    .output-wrapper p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hydroponic Parameter Form</h1>
+  <div class="container">
+    <div class="form-wrapper">
+      <form action="{{ url_for('crp_rcmnd')}}" method="post">
+        <div class="form-group">
+          <label for="nitrogen">Nitrogen (N)</label>
+          <input type="text" id="nitrogen" name="nitrogen" {% if request.method == 'POST' %} value="{{ request.form.get('nitrogen') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="phosphorus">Phosphorus (P)</label>
+          <input type="text" id="phosphorus" name="phosphorus" {% if request.method == 'POST' %} value="{{ request.form.get('phosphorus') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="potassium">Potassium (K)</label>
+          <input type="text" id="potassium" name="potassium" {% if request.method == 'POST' %} value="{{ request.form.get('potassium') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="temperature">Temperature</label>
+          <input type="text" id="temperature" name="temperature" {% if request.method == 'POST' %} value="{{ request.form.get('temperature') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="humidity">Humidity</label>
+          <input type="text" id="humidity" name="humidity" {% if request.method == 'POST' %} value="{{ request.form.get('humidity') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="ph">pH</label>
+          <input type="text" id="ph" name="ph" {% if request.method == 'POST' %} value="{{ request.form.get('ph') }}" {% endif %} required>
+        </div>
+        <input type="submit" value="Predict" class="submit-btn">
+      </form>
+    </div>
+    <div class="image-wrapper">
+      <img src="{{ url_for('static', filename='bg.jpg')}}" alt="bg">
+    </div>
+    <div class="output-wrapper">
+      <h2>Output</h2>
+      ------------------------------------------------------------------------------------------------------------------------------------------
+      <h2>{{prediction_text}}</h2>
+      <!-- Add the code to display the output here -->
+    </div>
+  </div>
+</body>
+</html>

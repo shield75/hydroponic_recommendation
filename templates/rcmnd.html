@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hydroponic Recommendation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #E0F0D8;
+    }
+
+    h1 {
+      text-align: center;
+      color: #468C48;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #CCCCCC;
+    }
+
+    .form-group select {
+      height: 40px; /* Adjust the height as desired */
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #468C48;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #348038;
+    }
+
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .output-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .output-wrapper h2 {
+      text-align: center;
+      color: #468C48;
+      margin-bottom: 20px;
+    }
+
+    .output-wrapper p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hydroponic Recommendation Form</h1>
+  <div class="container">
+    <div class="form-wrapper">
+      <form  action="{{ url_for('solution_recommend')}}" method="post" >
+        <div class="form-group">
+          <label for="nitrogen">Nitrogen (N)</label>
+          <input type="number" id="nitrogen" name="nitrogen" {% if request.method == 'POST' %} value="{{ request.form.get('nitrogen') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="phosphorus">Phosphorus (P)</label>
+          <input type="number" id="phosphorus" name="phosphorus" {% if request.method == 'POST' %} value="{{ request.form.get('phosphorus') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="potassium">Potassium (K)</label>
+          <input type="number" id="potassium" name="potassium" {% if request.method == 'POST' %} value="{{ request.form.get('potassium') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="ph">pH</label>
+          <input type="number" id="ph" name="ph" {% if request.method == 'POST' %} value="{{ request.form.get('ph') }}" {% endif %} required>
+        </div>
+        <div class="form-group">
+          <label for="crop">Crop</label>
+          <select id="crop" name="crop"  required>
+             <option value="rice" {% if request.method == 'POST' and request.form.get('crop') == 'rice' %} selected {% endif %}>Rice</option>
+            <option value="maize" {% if request.method == 'POST' and request.form.get('crop') == 'maize' %} selected {% endif %}>Maize</option>
+            <option value="chickpea" {% if request.method == 'POST' and request.form.get('crop') == 'chickpea' %} selected {% endif %}>Chickpea</option>
+            <option value="kidneybeans" {% if request.method == 'POST' and request.form.get('crop') == 'kidneybeans' %} selected {% endif %}>Kidney Beans</option>
+            <option value="pigeonpeas" {% if request.method == 'POST' and request.form.get('crop') == 'pigeonpeas' %} selected {% endif %}>Pigeon Peas</option>
+            <option value="mungbean" {% if request.method == 'POST' and request.form.get('crop') == 'mungbean' %} selected {% endif %}>Mung Bean</option>
+            <option value="blackgram" {% if request.method == 'POST' and request.form.get('crop') == 'blackgram' %} selected {% endif %}>Black Gram</option>
+            <option value="lentil" {% if request.method == 'POST' and request.form.get('crop') == 'lentil' %} selected {% endif %}>Lentil</option>
+            <option value="pomegranate" {% if request.method == 'POST' and request.form.get('crop') == 'pomegranate' %} selected {% endif %}>Pomegranate</option>
+            <option value="banana" {% if request.method == 'POST' and request.form.get('crop') == 'banana' %} selected {% endif %}>Banana</option>
+            <option value="mango" {% if request.method == 'POST' and request.form.get('crop') == 'mango' %} selected {% endif %}>Mango</option>
+            <option value="grapes" {% if request.method == 'POST' and request.form.get('crop') == 'grapes' %} selected {% endif %}>Grapes</option>
+            <option value="muskmelon" {% if request.method == 'POST' and request.form.get('crop') == 'muskmelon' %} selected {% endif %}>Muskmelon</option>
+            <option value="apple" {% if request.method == 'POST' and request.form.get('crop') == 'apple' %} selected {% endif %}>Apple</option>
+            <option value="orange" {% if request.method == 'POST' and request.form.get('crop') == 'orange' %} selected {% endif %}>Orange</option>
+            <option value="papaya" {% if request.method == 'POST' and request.form.get('crop') == 'papaya' %} selected {% endif %}>Papaya</option>
+            <option value="coconut" {% if request.method == 'POST' and request.form.get('crop') == 'coconut' %} selected {% endif %}>Coconut</option>
+            <option value="cotton" {% if request.method == 'POST' and request.form.get('crop') == 'cotton' %} selected {% endif %}>Cotton</option>
+            <option value="jute" {% if request.method == 'POST' and request.form.get('crop') == 'jute' %} selected {% endif %}>Jute</option>
+            <option value="coffee" {% if request.method == 'POST' and request.form.get('crop') == 'coffee' %} selected {% endif %}>Coffee</option>
+          </select>
+        </div>
+        <input type="submit" value="Recommend" class="submit-btn">
+      </form>
+    </div>
+    <div class="image-wrapper">
+      <img src="{{ url_for('static', filename='npk1.png')}}" alt="npk1">
+    </div>
+    <div class="output-wrapper">
+      <h2>Output</h2>
+      ------------------------------------------------------------------------------------------------------------------------------------------
+      <h2>{{text1}}</h2>
+      <h2>{{text2}}</h2>
+      <h2>{{recommendation}}</h2>
+      <!-- Add the code to display the output here -->
+    </div>
+  </div>
+</body>
+</html>
