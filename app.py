@@ -20,7 +20,7 @@ def home():
 
 @app.route('/predict')
 def predict():
-    return render_template('predict.html')
+    return render_template('predict.html', current_page = 'predict')
 
 
 @app.route('/crp_rcmnd', methods =['POST'])
@@ -28,12 +28,12 @@ def crp_rcmnd():
     features = [float(x) for x in request.form.values()]
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
-    return render_template('predict.html', prediction_text="Recommended Crop: {}".format(prediction))
+    return render_template('predict.html', prediction_text="Recommended Crop: {}".format(prediction), current_page='crp_rcmnd')
 
 
 @app.route('/rcmnd')
 def rcmnd():
-    return render_template('rcmnd.html')
+    return render_template('rcmnd.html', current_page='rcmnd')
 
 @ app.route('/solution_predict', methods=['POST'])
 def solution_recommend():
@@ -92,6 +92,15 @@ def solution_recommend():
     response = Markup(str(fertilizer_dic[key]))
 
     return render_template('rcmnd.html', text1= "Current Parameters: {}".format(current_fetures), text2 = "Recommended Parameters: {}".format(good_features), recommendation=response)
+
+
+@app.route('/hydroponic')
+def hydroponic():
+    return render_template('hydroponics.html', current_page = 'hydroponic')
+
+@app.route('/p_model')
+def p_model():
+    return render_template('p_model.html', current_page = 'p_model')
 
 if __name__ == "__main__":
     app.run(debug=True)
