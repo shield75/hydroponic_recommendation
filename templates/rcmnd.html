@@ -14,7 +14,50 @@
       text-align: center;
       color: #468C48;
     }
+    .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4a4a4a;
+  padding: 10px;
+  border-radius: 10px;
+}
 
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.logo img {
+  height: 50px;
+  padding-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+.nav-link.active {
+  color: #8FAEAB; /* Change this to your desired active link color */
+}
+
+.hero-section {
+  text-align: center;
+  background-color: #e1f5e1;
+  padding: 40px;
+}
     .container {
       display: flex;
       flex-direction: column;
@@ -99,10 +142,25 @@
 
     .output-wrapper p {
       margin-bottom: 10px;
+
     }
   </style>
 </head>
 <body>
+    <header>
+    <nav class="navbar">
+      <a href= "{{ url_for ('home') }}" class="logo">
+        <img src="{{ url_for('static', filename='logo.png')}}" alt="AIOT Hydroponic">
+        AIOT Hydroponic
+      </a>
+      <ul class="nav-links">
+      <li><a href="{{ url_for('predict') }}" class="nav-link {% if current_page == 'predict' %}active{% endif %}">Crop Recommendation</a></li>
+      <li><a href="{{ url_for('rcmnd') }}" class="nav-link {% if current_page == 'rcmnd' %}active{% endif %}">Crop Monitoring</a></li>
+      <li><a href="{{ url_for('hydroponic') }}" class="nav-link {% if current_page == 'hydroponic' %}active{% endif %}">Know about Hydroponics</a></li>
+      <li><a href="#" class="nav-link {% if current_page == 'proposed_model' %}active{% endif %}">Proposed Model</a></li>
+    </ul>
+    </nav>
+  </header>
   <h1>Hydroponic Recommendation Form</h1>
   <div class="container">
     <div class="form-wrapper">

@@ -93,9 +93,65 @@
     .output-wrapper p {
       margin-bottom: 10px;
     }
+
+    .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4a4a4a;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.logo img {
+  height: 50px;
+  padding-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+.nav-links a.active {
+    color: #8FAEAB;
+}
+
+
+
   </style>
 </head>
 <body>
+  <header>
+   <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png')}}" alt="AIOT Hydroponic">
+            AIOT Hydroponic
+        </a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('predict')}}" class="{{ 'active' if current_page == 'predict' }}">Crop Recommendation</a></li>
+            <li><a href="{{ url_for('rcmnd')}}" class="{{ 'active' if current_page == 'rcmnd' }}">Crop Monitoring</a></li>
+            <li><a href="{{ url_for('hydroponic')}}" class="{{ 'active' if current_page == 'hydroponic' }}">Know about Hydroponics</a></li>
+            <li><a href="{{ url_for('p_model')}}" class="{{ 'active' if current_page == 'p_model' }}">Proposed Model</a></li>
+        </ul>
+    </nav>
+  </header>
   <h1>Hydroponic Parameter Form</h1>
   <div class="container">
     <div class="form-wrapper">

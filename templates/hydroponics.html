@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hydroponic - New way of Cultivation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #E0F0D8;;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #468C48;
+      margin: 40px 0;
+    }
+
+    .container {
+
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #468C48;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #468C48;
+      padding-bottom: 5px;
+    }
+
+    .section-content {
+      font-size: 16px;
+    }
+
+    .image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image1 img {
+      max-width: 50%;
+      height: 270px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .image-boxes {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; /* Add this line to wrap the boxes to the next line if necessary */
+      margin-top: 20px;
+    }
+
+    .image-box {
+        flex: 0 0 calc(50% - 10px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+}
+
+    .image-box img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+
+    .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4a4a4a;
+    padding: 10px;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.logo img {
+  height: 50px;
+  padding-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+.nav-links a.active {
+    color: #8FAEAB;
+}
+
+
+  </style>
+</head>
+<body>
+<header>
+   <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png')}}" alt="AIOT Hydroponic">
+            AIOT Hydroponic
+        </a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('predict')}}" class="{{ 'active' if current_page == 'predict' }}">Crop Recommendation</a></li>
+            <li><a href="{{ url_for('rcmnd')}}" class="{{ 'active' if current_page == 'rcmnd' }}">Crop Monitoring</a></li>
+            <li><a href="{{ url_for('hydroponic')}}" class="{{ 'active' if current_page == 'hydroponic' }}">Know about Hydroponics</a></li>
+            <li><a href="{{ url_for('p_model')}}" class="{{ 'active' if current_page == 'p_model' }}">Proposed Model</a></li>
+        </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Hydroponic - New way of Cultivation</h1>
+
+    <!-- Introduction Section -->
+    <div class="section">
+      <h2 class="section-title">Hydroponics</h2>
+      <div class="image1">
+        <img src="{{ url_for('static', filename='hp3.jpg')}}" alt="Hydroponics Introduction">
+      </div>
+      <p class="section-content">
+       Hydroponics is a modern and innovative method of cultivating plants without the use of traditional soil. Instead, plants are grown in a nutrient-rich water solution that provides all the essential elements they need to thrive. This revolutionary technique has gained popularity in recent years due to its numerous benefits.
+
+By eliminating the need for soil, hydroponics offers several advantages over conventional agriculture. It allows for higher crop yields with faster growth rates, as plants can focus on developing and producing fruits and vegetables rather than expending energy on root growth.
+
+Additionally, hydroponics conserves water and nutrients by recirculating the solution, making it a more resource-efficient and environmentally friendly approach to farming. The controlled environment also enables year-round cultivation, overcoming seasonal limitations and ensuring a constant supply of fresh produce.
+
+Hydroponic systems come in various forms, such as Deep Water Culture (DWC), Nutrient Film Technique (NFT), and Ebb and Flow (Flood and Drain), providing flexibility and adaptability to different crops and growing conditions.
+
+Overall, hydroponics represents a sustainable and promising solution for the future of agriculture, offering the potential to address food security challenges, reduce land use, and minimize the environmental impact of farming.
+      </p>
+      <div class="video">
+        <iframe width="560" height="350" src="https://www.youtube.com/embed/tzBK4QZSQaY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="section">
+      <h2 class="section-title">Benefits of Hydroponics</h2>
+      <p class="section-content">
+        Hydroponics offers several advantages over traditional soil-based cultivation. Some of the key benefits include:
+        <ul>
+          <li>Increased crop yield with faster growth rates</li>
+          <li>Conservation of water and nutrients</li>
+          <li>No need for pesticides or herbicides</li>
+          <li>Ability to grow in limited spaces</li>
+          <li>Year-round cultivation regardless of weather conditions</li>
+        </ul>
+      </p>
+      <div class="image">
+        <img src="{{ url_for('static', filename='hp4.jpg')}}" alt="Hydroponics Benefits">
+      </div>
+    </div>
+
+    <!-- Working Procedure Section -->
+    <div class="section">
+      <h2 class="section-title">Working Procedure of Hydroponics</h2>
+        <div class="image1">
+        <img src="{{ url_for('static', filename='hp5.jpg')}}" alt="Hydroponics Introduction">
+      </div>
+      <p class="section-content">
+       <p>Hydroponics is a method of growing plants without soil, using a nutrient-rich water solution to deliver essential elements directly to the plant's roots. The primary aim is to provide optimal growing conditions and maximize plant growth and productivity. The working procedure of hydroponics typically involves the following steps:</p>
+         <ol>
+        <li><strong>System Setup:</strong> Choose a suitable hydroponic system based on your space, budget, and the types of plants you want to grow. Common hydroponic systems include Deep Water Culture (DWC), Nutrient Film Technique (NFT), Ebb and Flow (Flood and Drain), and Drip System.</li>
+        <li><strong>Nutrient Solution:</strong> Prepare a balanced nutrient solution containing essential nutrients like nitrogen, phosphorus, potassium, calcium, magnesium, and micronutrients. The solution's pH level should be adjusted to the appropriate range for the specific plants you are growing.</li>
+        <li><strong>Planting Medium:</strong> Instead of soil, use an inert planting medium (like Rockwool, clay pellets, perlite, or coconut coir) to support the plant's root system and hold it in place.</li>
+        <li><strong>Planting and Transplanting:</strong> Plant the seeds or seedlings in the chosen planting medium and place them in the hydroponic system. In some cases, plants are started in small net pots, and once they develop roots, they are transplanted to the main hydroponic system.</li>
+        <li><strong>Nutrient Delivery:</strong> The hydroponic system ensures a continuous flow or periodic delivery of the nutrient solution to the plant roots. This solution contains all the necessary nutrients required for the plant's growth.</li>
+        <li><strong>Oxygenation:</strong> Adequate oxygen supply is crucial for healthy root development in hydroponic systems. Some systems, like DWC, use air stones or diffusers to oxygenate the nutrient solution.</li>
+        <li><strong>Monitoring and Maintenance:</strong> Regularly monitor the pH and nutrient levels of the solution to ensure they remain within the appropriate range for your plants. Top up the nutrient solution as needed and replace it periodically to prevent nutrient imbalances.</li>
+        <li><strong>Lighting:</strong> Provide adequate artificial lighting or natural sunlight to promote photosynthesis and support plant growth. LED grow lights are commonly used in indoor hydroponic setups.</li>
+        <li><strong>Pest and Disease Control:</strong> Since hydroponic systems are soilless, the risk of certain pests and diseases may be reduced. However, it's essential to implement preventive measures to keep the plants healthy and free from any potential issues.</li>
+        <li><strong>Harvesting:</strong> When the plants reach maturity, harvest them by carefully removing them from the planting medium. Enjoy the fresh, nutritious produce grown through hydroponics!</li>
+        </ol>
+      </p>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/N7HNAD4EfkQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Hydroponics and the Future Section -->
+    <div class="section">
+      <h2 class="section-title">Hydroponics and its Impact on the Future Agricultural Industry</h2>
+      <p>Hydroponics is poised to play a significant role in shaping the future of the agricultural industry and aligning with the advancements of the Fourth Industrial Revolution (4IR). This soilless farming technique offers several key benefits that address the challenges of traditional agriculture and align with the technological innovations of the 4IR:</p>
+    <ol>
+        <li><strong>Resource Efficiency:</strong> Hydroponics allows for precise control over nutrient delivery and water usage, significantly reducing water consumption compared to conventional farming. The 4IR technologies, such as IoT (Internet of Things) sensors and AI (Artificial Intelligence), can further optimize resource utilization by providing real-time data and analytics to fine-tune nutrient solutions and environmental conditions.</li>
+        <li><strong>Higher Yields in Limited Spaces:</strong> Hydroponic systems enable vertical farming and cultivation in urban areas, making it possible to grow crops in limited spaces. As the world's population increases, urbanization intensifies, and arable land diminishes, hydroponics combined with automation and robotics of the 4IR can help meet the growing demand for food while maximizing land utilization.</li>
+        <li><strong>Reduced Environmental Impact:</strong> By eliminating the need for soil and using closed-loop systems, hydroponics minimizes soil degradation and the release of harmful agricultural runoff into water bodies. In conjunction with smart automation technologies of the 4IR, hydroponics can reduce the use of chemical pesticides and fertilizers, leading to more sustainable and environmentally friendly farming practices.</li>
+        <li><strong>Climate Resilience:</strong> Extreme weather events and climate change pose significant challenges to traditional agriculture. Hydroponics, with its controlled indoor environment, offers greater resilience to climatic fluctuations and extreme conditions. When integrated with 4IR technologies like climate modeling and predictive analytics, hydroponic systems can adapt rapidly to changing weather patterns and maintain stable crop production.</li>
+        <li><strong>Integration with 4IR Technologies:</strong> The Fourth Industrial Revolution is characterized by the fusion of digital, physical, and biological technologies. Hydroponics can seamlessly integrate with 4IR technologies like AI, robotics, and data analytics, leading to autonomous monitoring, adaptive systems, and precise crop management. This integration enhances efficiency, productivity, and decision-making in hydroponic farming.</li>
+    </ol>
+    <p>In conclusion, hydroponics presents a promising solution for sustainable and efficient agriculture, especially in the face of future challenges brought about by population growth, urbanization, and climate change. When coupled with the transformative technologies of the Fourth Industrial Revolution, hydroponics can revolutionize the agricultural industry, promote food security, and drive us towards a more sustainable and technology-driven future.</p>
+        <div class="image-boxes">
+        <div class="image-box">
+          <img src="{{ url_for('static', filename='hp6.jpeg')}}" alt="Hydroponics Future 1">
+        </div>
+        <div class="image-box">
+          <img src="{{ url_for('static', filename='hp7.jpg')}}" height="290px" alt="Hydroponics Future 2">
+        </div>
+        </div>
+  </div>
+</body>
+</html>

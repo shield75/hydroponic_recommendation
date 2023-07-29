@@ -14,8 +14,8 @@
       <ul class="nav-links">
         <li><a href="{{ url_for('predict')}}">Crop Recommendation</a></li>
         <li><a href="{{ url_for('rcmnd')}}">Crop Monitoring</a></li>
-        <li><a href="#">Know about Hydroponic</a></li>
-        <li><a href="#">How to Set Up</a></li>
+        <li><a href="{{ url_for('hydroponic')}}">Know about Hydroponics</a></li>
+        <li><a href="{{ url_for('p_model')}}" class="{{ 'active' if current_page == 'p_model' }}">Proposed Model</a></li>
       </ul>
     </nav>
   </header>

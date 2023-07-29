@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hydroponic - New way of Cultivation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #E0F0D8;;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #468C48;
+      margin: 40px 0;
+    }
+
+    .container {
+
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #468C48;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #468C48;
+      padding-bottom: 5px;
+    }
+
+    .section-content {
+      font-size: 16px;
+    }
+
+    .image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+
+    .image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .image-boxes {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; /* Add this line to wrap the boxes to the next line if necessary */
+      margin-top: 20px;
+    }
+
+    .image-box {
+        flex: 0 0 calc(50% - 10px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+}
+
+    .image-box img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+
+    .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4a4a4a;
+    padding: 10px;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.logo img {
+  height: 50px;
+  padding-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+.nav-links a.active {
+    color: #8FAEAB;
+}
+
+
+  </style>
+</head>
+<body>
+<header>
+   <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png')}}" alt="AIOT Hydroponic">
+            AIOT Hydroponic
+        </a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('predict')}}" class="{{ 'active' if current_page == 'predict' }}">Crop Recommendation</a></li>
+            <li><a href="{{ url_for('rcmnd')}}" class="{{ 'active' if current_page == 'rcmnd' }}">Crop Monitoring</a></li>
+            <li><a href="{{ url_for('hydroponic')}}" class="{{ 'active' if current_page == 'hydroponic' }}">Know about Hydroponics</a></li>
+            <li><a href="{{ url_for('p_model')}}" class="{{ 'active' if current_page == 'p_model' }}">Proposed Model</a></li>
+        </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Hydroponic - New way of Cultivation</h1>
+
+    <!-- Introduction Section -->
+    <div class="section">
+      <h2 class="section-title">Flowchart of our proposed system</h2>
+      <div class="image">
+        <img src="{{ url_for('static', filename='f11.jpg')}}" alt="Hydroponics Introduction">
+      </div>
+
+</body>
+</html>
